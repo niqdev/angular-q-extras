@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "niqdev",
+        "email": "niqdev@gmail.com"
+      },
+      "libraryName": {
+        "original": "angular-q-extras",
+        "camelized": "angularQExtras",
+        "dasherized": "angular-q-extras",
+        "slugified": "angular-q-extras",
+        "parts": [
+          "angular",
+          "q",
+          "extras"
+        ]
+      },
+      "includeModuleDirectives": false,
+      "includeModuleFilters": false,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/angular-q-extras",
+      "libraryUnitTestDirectory": "test/unit/angular-q-extras",
+      "libraryUnitE2eDirectory": "test/e2e/angular-q-extras"
+    }
+  }
+}
