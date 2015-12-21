@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
     '<%= grunt.template.today("yyyy-mm-dd") %> */',
+    clean: ['dist'],
     jshint: {
       all: ['src/**/*.js', 'test/**/*.js'],
       gruntfile: {
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('test', ['karma']);
+  grunt.registerTask('test', ['clean', 'karma']);
 
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('build', ['clean', 'jshint', 'concat', 'uglify']);
 };

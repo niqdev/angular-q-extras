@@ -5,7 +5,7 @@
 
     var $q;
 
-    beforeEach(module('angular-q-extras.services'));
+    beforeEach(module('angular-q-extras'));
 
     beforeEach(inject(function (_$q_) {
       $q = _$q_;
