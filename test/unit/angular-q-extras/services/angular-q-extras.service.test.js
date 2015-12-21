@@ -13,6 +13,7 @@
 
     it('should verify allSettled is defined', function () {
       expect(angular.isFunction($q.allSettled)).to.be.true;
+      $q.allSettled();
     });
 
   });

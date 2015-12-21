@@ -12,7 +12,7 @@
       var $q = $delegate;
 
       var allSettledDecorator = function (promises) {
-
+        console.log('invoke allSettledDecorator');
       };
 
       $q.allSettled = $q.allSettled || allSettledDecorator;
