@@ -1,0 +1,11 @@
+{
+  "name": "angular-q-extras",
+  "version": "0.1.3",
+  "description": "Angular $q decorator",
+  "authors": [
+    "niqdev"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8"
+  }
+}
