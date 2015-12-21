@@ -40,10 +40,10 @@ gulp.task('build', function() {
   gulp.src(sourceFiles)
     .pipe(plumber())
     .pipe(concat('angular-q-extras.js'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./'))
     .pipe(uglify())
     .pipe(rename('angular-q-extras.min.js'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./'));
 });
 
 /**

@@ -34,32 +34,8 @@
       var $q = $delegate;
 
       var allSettledDecorator = function (promises) {
-
+        console.log('invoke allSettledDecorator');
       };
-
-      /*
-      $q.allSettled = $q.allSettled || function allSettled(promises) {
-
-          var wrapped = angular.isArray(promises) ? [] : {};
-
-          angular.forEach(promises, function (promise, key) {
-            if (!wrapped.hasOwnProperty(key)) {
-              wrapped[key] = wrap(promise);
-            }
-          });
-
-          return $q.all(wrapped);
-
-          function wrap(promise) {
-            return $q.when(promise)
-              .then(function (value) {
-                return {state: 'fulfilled', value: value};
-              }, function (reason) {
-                return {state: 'rejected', reason: reason};
-              });
-          }
-        };
-        */
 
       $q.allSettled = $q.allSettled || allSettledDecorator;
 

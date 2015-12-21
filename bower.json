@@ -1,13 +1,14 @@
 {
   "name": "angular-q-extras",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     {
-      "name": "niqdev",
-      "email": "niqdev@gmail.com"
+      "name": "niqdev"
     }
   ],
-  "main": ["dist/angular-q-extras.js"],
+  "main": [
+    "dist/angular-q-extras.js"
+  ],
   "ignore": [
     "src",
     "test",
