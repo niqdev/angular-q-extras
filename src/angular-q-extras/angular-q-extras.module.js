@@ -5,17 +5,17 @@
   // before all nested files are concatenated by Gulp
 
   // Config
-  angular.module('angularQExtras.config', [])
-      .value('angularQExtras.config', {
+  angular.module('angular-q-extras.config', [])
+      .value('angular-q-extras.config', {
           debug: true
       });
 
   // Modules
-  angular.module('angularQExtras.services', []);
-  angular.module('angularQExtras',
+  angular.module('angular-q-extras.services', []);
+  angular.module('angular-q-extras',
       [
-          'angularQExtras.config',
-          'angularQExtras.services'
+          'angular-q-extras.config',
+          'angular-q-extras.services'
       ]);
 
 })(angular);
