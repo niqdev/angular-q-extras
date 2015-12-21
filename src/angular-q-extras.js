@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('niqdev.angular-q-extras')
+  angular.module('angular-q-extras', [])
     .config(angularPromiseDecorator);
 
   angularPromiseDecorator.$inject = ['$provide'];

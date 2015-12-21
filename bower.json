@@ -6,6 +6,7 @@
     "niqdev"
   ],
   "dependencies": {
-    "angular": "~1.4.8"
+    "angular": "~1.4.8",
+    "angular-mocks": "~1.4.8"
   }
 }
