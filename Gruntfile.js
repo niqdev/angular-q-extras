@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('test', ['clean', 'karma']);
+  grunt.registerTask('test', ['karma']);
 
   grunt.registerTask('build', ['clean', 'jshint', 'concat', 'uglify']);
 };

@@ -1,5 +1,13 @@
 # angular-q-extras
 
+TODO
+
+### Example
+```javascript
+TODO
+```
+
+### Setup
 ```
 npm install
 grunt build
@@ -18,4 +26,5 @@ Setup package manager
 ```
 bower init
 bower install angular --save
+bower install <LIBRARY> --save
 ```
