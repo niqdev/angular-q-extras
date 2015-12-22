@@ -1,6 +1,7 @@
 # angular-q-extras
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+<!-- [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) -->
+[![NPM version][npm-image]][npm-url]
 [![Build Status](https://travis-ci.org/niqdev/angular-q-extras.svg?branch=master)](https://travis-ci.org/niqdev/angular-q-extras)
 [![devDependency Status](https://david-dm.org/niqdev/angular-q-extras/dev-status.svg)](https://david-dm.org/niqdev/angular-q-extras#info=devDependencies)
 
@@ -39,3 +40,6 @@ $q.allSettledRejected
 npm install
 grunt build
 ```
+
+[npm-image]: https://img.shields.io/npm/v/angular-q-extras.svg
+[npm-url]: https://www.npmjs.com/package/angular-q-extras

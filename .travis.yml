@@ -4,13 +4,8 @@ node_js:
 before_install:
   - "npm install -g grunt-cli"
   - "npm install -g bower"
-  - "npm install -g codecov"
 install:
   - "npm install"
   - "bower install"
 before_script:
   - "grunt build"
-script:
-  - "grunt test"
-  - "istanbul cover jasmine-node --captureExceptions spec/ \
-    && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
