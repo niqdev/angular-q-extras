@@ -25,9 +25,9 @@ Add the module as a dependency to your application
 ### Example
 ```javascript
 TODO
-$q.allSettled
-$q.isResolvedStatus
+$q.isFulfilledStatus
 $q.isRejectedStatus
+$q.allSettled
 $q.allSettledFulfilled
 $q.allSettledRejected
 ```
