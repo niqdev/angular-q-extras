@@ -31,14 +31,13 @@ TODO
 $q.isFulfilledState
 $q.isRejectedState
 $q.allSettled
-$q.allSettledFulfilled
-$q.allSettledRejected
 ```
 
 ### Development
 ```
 npm install
 grunt build
+grunt test
 ```
 
 [npm-image]: https://img.shields.io/npm/v/angular-q-extras.svg

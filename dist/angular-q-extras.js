@@ -1,4 +1,4 @@
-/*! angular-q-extras - v0.1.5 - 2015-12-22 */
+/*! angular-q-extras - v0.1.6 - 2015-12-22 */
 (function () {
   'use strict';
 
@@ -73,16 +73,6 @@
         );
       };
 
-      // TODO filter
-      var allSettledFulfilled = function () {
-        throw Error('not implemented yet');
-      };
-
-      // TODO filter
-      var allSettledRejected = function () {
-        throw Error('not implemented yet');
-      };
-
       /**
        * @name $q#allSettled
        * @kind function
@@ -112,12 +102,9 @@
         return $q.all(results);
       };
 
-      // don't override if is already defined
       $q.isFulfilledState = $q.isFulfilledState || isFulfilledState;
       $q.isRejectedState = $q.isRejectedState || isRejectedState;
       $q.allSettled = $q.allSettled || allSettledDecorator;
-      $q.allSettledFulfilled = $q.allSettledFulfilled || allSettledFulfilled;
-      $q.allSettledRejected = $q.allSettledRejected || allSettledRejected;
 
       return $q;
     }]);

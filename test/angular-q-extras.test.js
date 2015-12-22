@@ -39,8 +39,6 @@
       expect(angular.isFunction($q.isFulfilledState)).toBeTrue();
       expect(angular.isFunction($q.isRejectedState)).toBeTrue();
       expect(angular.isFunction($q.allSettled)).toBeTrue();
-      expect(angular.isFunction($q.allSettledFulfilled)).toBeTrue();
-      expect(angular.isFunction($q.allSettledRejected)).toBeTrue();
     });
 
     it('should verify constant', function () {
@@ -90,32 +88,6 @@
 
           expect($q.isFulfilledState(data)).toBeTrue();
           expect($q.isRejectedState(data)).toBeFalse();
-        });
-
-      $scope.$apply();
-    });
-
-    it('should verify allSettledFulfilled', function () {
-
-      $q.allSettledFulfilled(mockedPromises())
-        .then(function(data) {
-          expect(data).toBeArrayOfSize(3);
-
-          expect($q.isFulfilledState(data[0])).toBeTrue();
-          expect($q.isFulfilledState(data[1])).toBeTrue();
-          expect($q.isFulfilledState(data[2])).toBeTrue();
-        });
-
-      $scope.$apply();
-    });
-
-    it('should verify allSettledRejected', function () {
-
-      $q.allSettledRejected(mockedPromises())
-        .then(function(data) {
-          expect(data).toBeArrayOfSize(1);
-
-          expect($q.isRejectedState(data[0])).toBeTrue();
         });
 
       $scope.$apply();
