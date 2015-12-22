@@ -7,6 +7,7 @@ TODO
 - example
 - travis
 - codecov
+- comment https://github.com/angular/angular.js/issues/8737
 
 ### Setup
 
