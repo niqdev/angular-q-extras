@@ -19,6 +19,16 @@
     $provide.decorator('$q', ['$delegate', function ($delegate) {
       var $q = $delegate;
 
+      // TODO
+      var isResolvedStatus = function(promise) {
+        return true;
+      };
+
+      // TODO
+      var isRejectedStatus = function(promise) {
+        return true;
+      };
+
       /**
        * @name $q#allSettled
        * @kind function
@@ -33,6 +43,9 @@
         console.log('invoke allSettledDecorator');
       };
 
+      // don't override if is already defined
+      $q.isResolvedStatus = $q.isResolvedStatus || isResolvedStatus;
+      $q.isRejectedStatus = $q.isRejectedStatus || isRejectedStatus;
       $q.allSettled = $q.allSettled || allSettledDecorator;
 
       return $q;
