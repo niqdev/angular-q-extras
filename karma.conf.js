@@ -6,8 +6,8 @@ module.exports = function (config) {
       'jasmine-matchers'
     ],
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      'bower/angular/angular.js',
+      'bower/angular-mocks/angular-mocks.js',
       'src/**/*.js',
       'test/**/*.test.js'
     ],
