@@ -12,6 +12,16 @@
   angularPromiseDecorator.$inject = ['$provide', 'angularPromiseConstant', 'lodash'];
 
   /**
+   * From documentation:
+   *
+   * The <code>$q.all</code> function returns a promise for an array of values.
+   * When this promise is fulfilled, the array contains the fulfillment values
+   * of the original promises, in the same order as those promises.
+   * If one of the given promises is rejected, the returned promise is immediately rejected,
+   * not waiting for the rest of the batch.
+   * If you want to wait for all of the promises to either be fulfilled or rejected,
+   * you can use <code>$q.allSettled</code>.
+   *
    * See also:
    * https://github.com/kriskowal/q/wiki/API-Reference#promiseallsettled
    */
@@ -20,39 +30,38 @@
     $provide.decorator('$q', ['$delegate', function ($delegate) {
       var $q = $delegate;
 
-      var validatePromiseStatus = function (promise, status) {
-        return _.has(promise, 'state') && promise.state === status;
+      var validatePromiseState = function (promise, State) {
+        return _.has(promise, 'state') && promise.state === State;
       };
 
       /**
-       * @name $q#isFulfilledStatus
+       * @name $q#isFulfilledState
        * @kind function
        *
        * @description
-       * TODO
+       * Verify if state is 'fulfilled'.
        *
        * @param {Object.<Promise>}
        * @returns {Boolean}
        */
-      var isFulfilledStatus = function (promise) {
-        return validatePromiseStatus(promise, PROMISE.FULFILLED);
+      var isFulfilledState = function (promise) {
+        return validatePromiseState(promise, PROMISE.FULFILLED);
       };
 
       /**
-       * @name $q#isRejectedStatus
+       * @name $q#isRejectedState
        * @kind function
        *
        * @description
-       * TODO
+       * Verify if state is 'rejected'.
        *
        * @param {Object.<Promise>}
        * @returns {Boolean}
        */
-      var isRejectedStatus = function (promise) {
-        return validatePromiseStatus(promise, PROMISE.REJECTED);
+      var isRejectedState = function (promise) {
+        return validatePromiseState(promise, PROMISE.REJECTED);
       };
 
-      // TODO
       var settle = function (promise) {
         return $q.when(promise).then(
           function (value) {
@@ -79,17 +88,23 @@
        * @kind function
        *
        * @description
-       * TODO
+       * Waits for all of the promises to either be fulfilled or rejected.
        *
        * @param {Array.<Promise>|Object.<Promise>} promises An array or hash of promises.
-       * @returns {Promise} TODO
+       * @returns {Array.<Promise>|Object.<Promise>}
+       *
+       * <pre>
+       *     {state: 'fulfilled', value: value}
+       *     or
+       *     {state: 'rejected', reason: reason}
+       * </pre>
        */
       var allSettledDecorator = function (promises) {
-        //var results = angular.isArray(promises) ? [] : {};
+        if (!angular.isArray(promises)) {
+          return settle(promises);
+        }
 
-        // TODO handle object!
         var results = [];
-
         angular.forEach(promises, function (promise, key) {
           results[key] = settle(promise);
         });
@@ -98,8 +113,8 @@
       };
 
       // don't override if is already defined
-      $q.isFulfilledStatus = $q.isFulfilledStatus || isFulfilledStatus;
-      $q.isRejectedStatus = $q.isRejectedStatus || isRejectedStatus;
+      $q.isFulfilledState = $q.isFulfilledState || isFulfilledState;
+      $q.isRejectedState = $q.isRejectedState || isRejectedState;
       $q.allSettled = $q.allSettled || allSettledDecorator;
       $q.allSettledFulfilled = $q.allSettledFulfilled || allSettledFulfilled;
       $q.allSettledRejected = $q.allSettledRejected || allSettledRejected;

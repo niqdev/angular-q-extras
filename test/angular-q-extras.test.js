@@ -27,8 +27,8 @@
     }
 
     it('should verify defined methods', function () {
-      expect(angular.isFunction($q.isFulfilledStatus)).toBeTrue();
-      expect(angular.isFunction($q.isRejectedStatus)).toBeTrue();
+      expect(angular.isFunction($q.isFulfilledState)).toBeTrue();
+      expect(angular.isFunction($q.isRejectedState)).toBeTrue();
       expect(angular.isFunction($q.allSettled)).toBeTrue();
       expect(angular.isFunction($q.allSettledFulfilled)).toBeTrue();
       expect(angular.isFunction($q.allSettledRejected)).toBeTrue();
@@ -41,14 +41,14 @@
       expect(angularPromiseConstant.REJECTED).toBe('rejected');
     });
 
-    it('should verify isFulfilledStatus', function () {
-      expect($q.isFulfilledStatus({state: angularPromiseConstant.FULFILLED})).toBeTrue();
-      expect($q.isFulfilledStatus({state: 'invalidState'})).toBeFalse();
+    it('should verify isFulfilledState', function () {
+      expect($q.isFulfilledState({state: angularPromiseConstant.FULFILLED})).toBeTrue();
+      expect($q.isFulfilledState({state: 'invalidState'})).toBeFalse();
     });
 
-    it('should verify isRejectedStatus', function () {
-      expect($q.isRejectedStatus({state: angularPromiseConstant.REJECTED})).toBeTrue();
-      expect($q.isRejectedStatus({state: 'invalidState'})).toBeFalse();
+    it('should verify isRejectedState', function () {
+      expect($q.isRejectedState({state: angularPromiseConstant.REJECTED})).toBeTrue();
+      expect($q.isRejectedState({state: 'invalidState'})).toBeFalse();
     });
 
     it('should verify allSettled with array parameter', function () {
@@ -61,35 +61,35 @@
 
       $q.allSettled(promises)
         .then(function(data) {
-          expect($q.isFulfilledStatus(data[0])).toBeTrue();
-          expect($q.isRejectedStatus(data[0])).toBeFalse();
+          expect(data).toBeArrayOfSize(4);
 
-          expect($q.isFulfilledStatus(data[1])).toBeTrue();
-          expect($q.isRejectedStatus(data[1])).toBeFalse();
+          expect($q.isFulfilledState(data[0])).toBeTrue();
+          expect($q.isRejectedState(data[0])).toBeFalse();
 
-          expect($q.isFulfilledStatus(data[2])).toBeFalse();
-          expect($q.isRejectedStatus(data[2])).toBeTrue();
+          expect($q.isFulfilledState(data[1])).toBeTrue();
+          expect($q.isRejectedState(data[1])).toBeFalse();
 
-          expect($q.isFulfilledStatus(data[3])).toBeTrue();
-          expect($q.isRejectedStatus(data[3])).toBeFalse();
+          expect($q.isFulfilledState(data[2])).toBeFalse();
+          expect($q.isRejectedState(data[2])).toBeTrue();
+
+          expect($q.isFulfilledState(data[3])).toBeTrue();
+          expect($q.isRejectedState(data[3])).toBeFalse();
         });
 
       $scope.$apply();
     });
 
     it('should verify allSettled with object parameter', function () {
-      throw Error('not implemented yet');
 
-      /*
       $q.allSettled(resolvePromise('PROMISE_FULFILLED'))
         .then(function(data) {
-          console.log(JSON.stringify(data));
-          expect($q.isFulfilledStatus(data)).toBeTrue();
-          expect($q.isRejectedStatus(data)).toBeFalse();
+          expect(data).not.toBeArray();
+
+          expect($q.isFulfilledState(data)).toBeTrue();
+          expect($q.isRejectedState(data)).toBeFalse();
         });
 
       $scope.$apply();
-      */
     });
 
     it('should verify allSettledFulfilled', function () {
