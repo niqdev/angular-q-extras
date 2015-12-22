@@ -2,6 +2,7 @@
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Build Status](https://travis-ci.org/niqdev/angular-q-extras.svg?branch=master)](https://travis-ci.org/niqdev/angular-q-extras)
+[![devDependency Status](https://david-dm.org/niqdev/angular-q-extras/dev-status.svg)](https://david-dm.org/niqdev/angular-q-extras#info=devDependencies)
 
 TODO
 - description
