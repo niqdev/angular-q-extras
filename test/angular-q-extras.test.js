@@ -26,6 +26,15 @@
       return deferred.promise;
     }
 
+    function mockedPromises() {
+      return [
+        resolvePromise('PROMISE_1_FULFILLED'),
+        resolvePromise('PROMISE_2_FULFILLED'),
+        rejectPromise('PROMISE_3_REJECT'),
+        resolvePromise('PROMISE_4_FULFILLED')
+      ];
+    }
+
     it('should verify defined methods', function () {
       expect(angular.isFunction($q.isFulfilledState)).toBeTrue();
       expect(angular.isFunction($q.isRejectedState)).toBeTrue();
@@ -52,14 +61,8 @@
     });
 
     it('should verify allSettled with array parameter', function () {
-      var promises = [
-        resolvePromise('PROMISE_1_FULFILLED'),
-        resolvePromise('PROMISE_2_FULFILLED'),
-        rejectPromise('PROMISE_3_REJECT'),
-        resolvePromise('PROMISE_4_FULFILLED')
-      ];
 
-      $q.allSettled(promises)
+      $q.allSettled(mockedPromises())
         .then(function(data) {
           expect(data).toBeArrayOfSize(4);
 
@@ -93,11 +96,29 @@
     });
 
     it('should verify allSettledFulfilled', function () {
-      throw Error('not implemented yet');
+
+      $q.allSettledFulfilled(mockedPromises())
+        .then(function(data) {
+          expect(data).toBeArrayOfSize(3);
+
+          expect($q.isFulfilledState(data[0])).toBeTrue();
+          expect($q.isFulfilledState(data[1])).toBeTrue();
+          expect($q.isFulfilledState(data[2])).toBeTrue();
+        });
+
+      $scope.$apply();
     });
 
     it('should verify allSettledRejected', function () {
-      throw Error('not implemented yet');
+
+      $q.allSettledRejected(mockedPromises())
+        .then(function(data) {
+          expect(data).toBeArrayOfSize(1);
+
+          expect($q.isRejectedState(data[0])).toBeTrue();
+        });
+
+      $scope.$apply();
     });
 
   });
