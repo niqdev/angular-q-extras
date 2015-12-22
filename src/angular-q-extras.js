@@ -3,8 +3,8 @@
 
   angular.module('angular-q-extras', [])
     .constant('angularPromiseConstant', {
-      RESOLVE: 'fulfilled',
-      REJECT: 'rejected'
+      FULFILLED: 'fulfilled',
+      REJECTED: 'rejected'
     })
     .config(angularPromiseDecorator);
 
@@ -20,13 +20,25 @@
       var $q = $delegate;
 
       // TODO
-      var isFulfilledStatus = function(promise) {
+      var isFulfilledStatus = function (promise) {
         return true;
       };
 
       // TODO
-      var isRejectedStatus = function(promise) {
+      var isRejectedStatus = function (promise) {
         return true;
+      };
+
+      // TODO
+      var settle = function (promise) {
+        return $q.when(promise).then(
+          function (value) {
+            return {state: PROMISE.FULFILLED, value: value};
+          },
+          function (reason) {
+            return {state: PROMISE.REJECTED, reason: reason};
+          }
+        );
       };
 
       /**

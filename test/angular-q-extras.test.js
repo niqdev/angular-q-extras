@@ -30,10 +30,10 @@
     });
 
     it('should verify constant', function () {
-      expect(angularPromiseConstant.RESOLVE).toBeDefined();
-      expect(angularPromiseConstant.RESOLVE).toBe('fulfilled');
-      expect(angularPromiseConstant.REJECT).toBeDefined();
-      expect(angularPromiseConstant.REJECT).toBe('rejected');
+      expect(angularPromiseConstant.FULFILLED).toBeDefined();
+      expect(angularPromiseConstant.FULFILLED).toBe('fulfilled');
+      expect(angularPromiseConstant.REJECTED).toBeDefined();
+      expect(angularPromiseConstant.REJECTED).toBe('rejected');
     });
 
     it('should verify isFulfilledStatus', function () {
