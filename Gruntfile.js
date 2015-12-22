@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-    '<%= grunt.template.today("yyyy-mm-dd") %> */',
+    '<%= grunt.template.today("yyyy-mm-dd") %> */\n',
     clean: ['dist'],
     jshint: {
       all: ['src/**/*.js', 'test/**/*.js'],
