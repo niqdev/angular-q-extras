@@ -1,4 +1,4 @@
-/*! angular-q-extras - v0.1.3 - 2015-12-22 */
+/*! angular-q-extras - v0.1.4 - 2015-12-22 */
 (function () {
   'use strict';
 
@@ -20,14 +20,34 @@
     $provide.decorator('$q', ['$delegate', function ($delegate) {
       var $q = $delegate;
 
-      var validatePromiseStatus = function(promise, status) {
-        return _.has(promise, state) && promise.state === status;
+      var validatePromiseStatus = function (promise, status) {
+        return _.has(promise, 'state') && promise.state === status;
       };
 
+      /**
+       * @name $q#isFulfilledStatus
+       * @kind function
+       *
+       * @description
+       * TODO
+       *
+       * @param {Object.<Promise>}
+       * @returns {Boolean}
+       */
       var isFulfilledStatus = function (promise) {
         return validatePromiseStatus(promise, PROMISE.FULFILLED);
       };
 
+      /**
+       * @name $q#isRejectedStatus
+       * @kind function
+       *
+       * @description
+       * TODO
+       *
+       * @param {Object.<Promise>}
+       * @returns {Boolean}
+       */
       var isRejectedStatus = function (promise) {
         return validatePromiseStatus(promise, PROMISE.REJECTED);
       };
@@ -44,6 +64,16 @@
         );
       };
 
+      // TODO filter
+      var allSettledFulfilled = function () {
+        throw Error('not implemented yet');
+      };
+
+      // TODO filter
+      var allSettledRejected = function () {
+        throw Error('not implemented yet');
+      };
+
       /**
        * @name $q#allSettled
        * @kind function
@@ -55,13 +85,24 @@
        * @returns {Promise} TODO
        */
       var allSettledDecorator = function (promises) {
-        console.log('invoke allSettledDecorator');
+        //var results = angular.isArray(promises) ? [] : {};
+
+        // TODO handle object!
+        var results = [];
+
+        angular.forEach(promises, function (promise, key) {
+          results[key] = settle(promise);
+        });
+
+        return $q.all(results);
       };
 
       // don't override if is already defined
       $q.isFulfilledStatus = $q.isFulfilledStatus || isFulfilledStatus;
       $q.isRejectedStatus = $q.isRejectedStatus || isRejectedStatus;
       $q.allSettled = $q.allSettled || allSettledDecorator;
+      $q.allSettledFulfilled = $q.allSettledFulfilled || allSettledFulfilled;
+      $q.allSettledRejected = $q.allSettledRejected || allSettledRejected;
 
       return $q;
     }]);

@@ -28,6 +28,8 @@ TODO
 $q.allSettled
 $q.isResolvedStatus
 $q.isRejectedStatus
+$q.allSettledFulfilled
+$q.allSettledRejected
 ```
 
 ### Development
