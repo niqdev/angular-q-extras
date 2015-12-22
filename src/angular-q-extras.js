@@ -20,7 +20,7 @@
       var $q = $delegate;
 
       // TODO
-      var isResolvedStatus = function(promise) {
+      var isFulfilledStatus = function(promise) {
         return true;
       };
 
@@ -44,7 +44,7 @@
       };
 
       // don't override if is already defined
-      $q.isResolvedStatus = $q.isResolvedStatus || isResolvedStatus;
+      $q.isFulfilledStatus = $q.isFulfilledStatus || isFulfilledStatus;
       $q.isRejectedStatus = $q.isRejectedStatus || isRejectedStatus;
       $q.allSettled = $q.allSettled || allSettledDecorator;
 

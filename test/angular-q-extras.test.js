@@ -36,7 +36,7 @@
       expect(angularPromiseConstant.REJECT).toBe('rejected');
     });
 
-    it('should verify isResolvedStatus', function () {
+    it('should verify isFulfilledStatus', function () {
       throw Error('not implemented yet');
     });
 
@@ -46,26 +46,26 @@
 
     it('should handle array', function () {
       var promises = [
-        resolvePromise('PROMISE_1_RESOLVE'),
-        resolvePromise('PROMISE_2_RESOLVE'),
+        resolvePromise('PROMISE_1_FULFILLED'),
+        resolvePromise('PROMISE_2_FULFILLED'),
         rejectPromise('PROMISE_3_REJECT'),
-        resolvePromise('PROMISE_4_RESOLVE')
+        resolvePromise('PROMISE_4_FULFILLED')
       ];
 
       $q.allSettled(promises)
         .then(function(data) {
           // TODO
           console.log(JSON.stringify(data));
-          expect($q.isResolvedStatus(data[0])).toBeTrue();
+          expect($q.isFulfilledStatus(data[0])).toBeTrue();
           expect($q.isRejectedStatus(data[0])).toBeFalse();
 
-          expect($q.isResolvedStatus(data[1])).toBeTrue();
+          expect($q.isFulfilledStatus(data[1])).toBeTrue();
           expect($q.isRejectedStatus(data[1])).toBeFalse();
 
-          expect($q.isResolvedStatus(data[2])).toBeFalse();
+          expect($q.isFulfilledStatus(data[2])).toBeFalse();
           expect($q.isRejectedStatus(data[2])).toBeTrue();
 
-          expect($q.isResolvedStatus(data[3])).toBeTrue();
+          expect($q.isFulfilledStatus(data[3])).toBeTrue();
           expect($q.isRejectedStatus(data[3])).toBeFalse();
         });
     });
