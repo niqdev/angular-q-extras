@@ -3,6 +3,7 @@
   "author": "niqdev",
   "version": "0.1.3",
   "description": "Angular $q decorator",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "postinstall": "bower cache clean && bower install",
