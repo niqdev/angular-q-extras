@@ -5,8 +5,11 @@
 [![Build Status](https://travis-ci.org/niqdev/angular-q-extras.svg?branch=master)](https://travis-ci.org/niqdev/angular-q-extras)
 [![devDependency Status](https://david-dm.org/niqdev/angular-q-extras/dev-status.svg)](https://david-dm.org/niqdev/angular-q-extras#info=devDependencies)
 
+Adds `$q.allSettled` to angular $q.
+
+> The `$q.all` function returns a promise for an array of values. When this promise is fulfilled, the array contains the fulfillment values of the original promises, in the same order as those promises. If one of the given promises is rejected, the returned promise is immediately rejected, not waiting for the rest of the batch. If you want to wait for all of the promises to either be fulfilled or rejected, you can use `$q.allSettled`.
+
 TODO
-- description
 - example
 - codecov
 - comment https://github.com/angular/angular.js/issues/8737

@@ -26,15 +26,6 @@
       return deferred.promise;
     }
 
-    function mockedPromises() {
-      return [
-        resolvePromise('PROMISE_1_FULFILLED'),
-        resolvePromise('PROMISE_2_FULFILLED'),
-        rejectPromise('PROMISE_3_REJECT'),
-        resolvePromise('PROMISE_4_FULFILLED')
-      ];
-    }
-
     it('should verify defined methods', function () {
       expect(angular.isFunction($q.isFulfilledState)).toBeTrue();
       expect(angular.isFunction($q.isRejectedState)).toBeTrue();
@@ -59,9 +50,15 @@
     });
 
     it('should verify allSettled with array parameter', function () {
+      var mockedPromises = [
+        resolvePromise('PROMISE_1_FULFILLED'),
+        resolvePromise('PROMISE_2_FULFILLED'),
+        rejectPromise('PROMISE_3_REJECT'),
+        resolvePromise('PROMISE_4_FULFILLED')
+      ];
 
-      $q.allSettled(mockedPromises())
-        .then(function(data) {
+      $q.allSettled(mockedPromises)
+        .then(function (data) {
           expect(data).toBeArrayOfSize(4);
 
           expect($q.isFulfilledState(data[0])).toBeTrue();
@@ -83,7 +80,7 @@
     it('should verify allSettled with object parameter', function () {
 
       $q.allSettled(resolvePromise('PROMISE_FULFILLED'))
-        .then(function(data) {
+        .then(function (data) {
           expect(data).not.toBeArray();
 
           expect($q.isFulfilledState(data)).toBeTrue();
