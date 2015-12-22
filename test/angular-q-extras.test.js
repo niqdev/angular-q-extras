@@ -36,8 +36,12 @@
       expect(angularPromiseConstant.REJECTED).toBe('rejected');
     });
 
+    // TODO
     it('should verify isFulfilledStatus', function () {
-      throw Error('not implemented yet');
+      expect(angular.isFunction($q.isFulfilledStatus)).toBeTrue();
+
+      expect($q.isFulfilledStatus(resolvePromise({state: angularPromiseConstant.FULFILLED}))).toBeTrue();
+      expect($q.isFulfilledStatus(resolvePromise({state: 'myState'}))).toBeTrue();
     });
 
     it('should verify isRejectedStatus', function () {
