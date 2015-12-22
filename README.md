@@ -2,16 +2,17 @@
 
 TODO
 
-### Download
-`bower install angular-q-extras --save`
-
+### Setup
+```
+bower install angular-q-extras --save
+```
 
 ### Example
 ```javascript
 TODO
 ```
 
-### Setup library
+### Development
 ```
 npm install
 grunt build

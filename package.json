@@ -15,7 +15,9 @@
   },
   "keywords": [
     "angular",
-    "$q"
+    "$q",
+    "promise",
+    "allSettled"
   ],
   "devDependencies": {
     "grunt": "^0.4.5",
