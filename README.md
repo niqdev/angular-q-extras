@@ -1,11 +1,11 @@
 # angular-q-extras
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/niqdev/angular-q-extras.svg?branch=master)](https://travis-ci.org/niqdev/angular-q-extras)
 
 TODO
 - description
 - example
-- travis
 - codecov
 - comment https://github.com/angular/angular.js/issues/8737
 
