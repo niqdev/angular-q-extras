@@ -1,6 +1,6 @@
 {
   "name": "angular-q-extras",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Angular $q decorator",
   "authors": [
     "niqdev"
@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "angular": ">=1.2",
-    "ng-lodash": "~0.3.0"
+    "ng-lodash": ">=0.2"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2"
