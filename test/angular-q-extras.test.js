@@ -39,14 +39,25 @@
       expect(angularPromiseConstant.REJECTED).toBe('rejected');
     });
 
+    function expectState(method, stateValue) {
+      expect($q[method]({state: stateValue})).toBeTrue();
+
+      expect($q[method](null)).toBeFalse();
+      expect($q[method](undefined)).toBeFalse();
+      expect($q[method]({})).toBeFalse();
+      expect($q[method]([])).toBeFalse();
+      expect($q[method]({state: null})).toBeFalse();
+      expect($q[method]({state: undefined})).toBeFalse();
+      expect($q[method]({state: ''})).toBeFalse();
+      expect($q[method]({state: 'invalidState'})).toBeFalse();
+    }
+
     it('should verify isFulfilledState', function () {
-      expect($q.isFulfilledState({state: angularPromiseConstant.FULFILLED})).toBeTrue();
-      expect($q.isFulfilledState({state: 'invalidState'})).toBeFalse();
+      expectState('isFulfilledState', angularPromiseConstant.FULFILLED);
     });
 
     it('should verify isRejectedState', function () {
-      expect($q.isRejectedState({state: angularPromiseConstant.REJECTED})).toBeTrue();
-      expect($q.isRejectedState({state: 'invalidState'})).toBeFalse();
+      expectState('isRejectedState', angularPromiseConstant.REJECTED);
     });
 
     it('should verify allSettled with array parameter', function () {
