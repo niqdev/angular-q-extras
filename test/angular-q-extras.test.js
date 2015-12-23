@@ -62,10 +62,10 @@
 
     it('should verify allSettled with array parameter', function () {
       var mockedPromises = [
+        resolvePromise('PROMISE_0_FULFILLED'),
         resolvePromise('PROMISE_1_FULFILLED'),
-        resolvePromise('PROMISE_2_FULFILLED'),
-        rejectPromise('PROMISE_3_REJECT'),
-        resolvePromise('PROMISE_4_FULFILLED')
+        rejectPromise('PROMISE_2_REJECT'),
+        resolvePromise('PROMISE_3_FULFILLED')
       ];
 
       $q.allSettled(mockedPromises)
@@ -74,15 +74,23 @@
 
           expect($q.isFulfilledState(data[0])).toBeTrue();
           expect($q.isRejectedState(data[0])).toBeFalse();
+          expect(data[0].value).toBe('PROMISE_0_FULFILLED');
+          expect(data[0].reason).toBeUndefined();
 
           expect($q.isFulfilledState(data[1])).toBeTrue();
           expect($q.isRejectedState(data[1])).toBeFalse();
+          expect(data[1].value).toBe('PROMISE_1_FULFILLED');
+          expect(data[1].reason).toBeUndefined();
 
           expect($q.isFulfilledState(data[2])).toBeFalse();
           expect($q.isRejectedState(data[2])).toBeTrue();
+          expect(data[2].reason).toBe('PROMISE_2_REJECT');
+          expect(data[2].value).toBeUndefined();
 
           expect($q.isFulfilledState(data[3])).toBeTrue();
           expect($q.isRejectedState(data[3])).toBeFalse();
+          expect(data[3].value).toBe('PROMISE_3_FULFILLED');
+          expect(data[3].reason).toBeUndefined();
         });
 
       $scope.$apply();
@@ -96,6 +104,8 @@
 
           expect($q.isFulfilledState(data)).toBeTrue();
           expect($q.isRejectedState(data)).toBeFalse();
+          expect(data.value).toBe('PROMISE_FULFILLED');
+          expect(data.reason).toBeUndefined();
         });
 
       $scope.$apply();
