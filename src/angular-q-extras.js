@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  angular.module('angular-q-extras', ['ngLodash'])
+  angular.module('angular-q-extras', [])
     .constant('angularPromiseConstant', {
       FULFILLED: 'fulfilled',
       REJECTED: 'rejected'
     })
     .config(angularPromiseDecorator);
 
-  angularPromiseDecorator.$inject = ['$provide', 'angularPromiseConstant', 'lodash'];
+  angularPromiseDecorator.$inject = ['$provide', 'angularPromiseConstant'];
 
   /**
    * From documentation:
@@ -24,13 +24,13 @@
    * See also:
    * https://github.com/kriskowal/q/wiki/API-Reference#promiseallsettled
    */
-  function angularPromiseDecorator($provide, PROMISE, _) {
+  function angularPromiseDecorator($provide, PROMISE) {
 
     $provide.decorator('$q', ['$delegate', function ($delegate) {
       var $q = $delegate;
 
-      var validatePromiseState = function (promise, State) {
-        return _.has(promise, 'state') && promise.state === State;
+      var validatePromiseState = function (promise, state) {
+        return _has(promise, 'state') && promise.state === state;
       };
 
       /**
@@ -107,6 +107,13 @@
 
       return $q;
     }]);
+
+    /**
+     * See lodash: _.has
+     */
+    function _has(object, key) {
+      return object ? Object.prototype.hasOwnProperty.call(object, key) : false;
+    }
 
   }
 
