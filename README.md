@@ -27,9 +27,9 @@ Add the module as a dependency to your application
 
 ```javascript
 var promises = [
-  resolvePromise('SUCCESS_0');
-  rejectPromise('FAIL_1');
-  resolvePromise('SUCCESS_2');
+  $q.when('SUCCESS_0');
+  $q.reject('FAIL_1');
+  $q.when('SUCCESS_2');
 ];
 
 $q.allSettled(promises)
@@ -45,18 +45,6 @@ $q.allSettled(promises)
     expect($q.isFulfilledState(data[2])).toBeTrue();
     expect(data[2].value).toBe('SUCCESS_2');
   });
-
-function resolvePromise(value) {
-  var deferred = $q.defer();
-  deferred.resolve(value);
-  return deferred.promise;
-}
-
-function rejectPromise(value) {
-  var deferred = $q.defer();
-  deferred.reject(value);
-  return deferred.promise;
-}
 ```
 
 ### Development

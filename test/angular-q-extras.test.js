@@ -15,15 +15,11 @@
     }));
 
     function resolvePromise(value) {
-      var deferred = $q.defer();
-      deferred.resolve(value);
-      return deferred.promise;
+      return $q.when(value);
     }
 
     function rejectPromise(value) {
-      var deferred = $q.defer();
-      deferred.reject(value);
-      return deferred.promise;
+      return $q.reject(value);
     }
 
     it('should verify defined methods', function () {
