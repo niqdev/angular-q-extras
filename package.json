@@ -1,7 +1,7 @@
 {
   "name": "angular-q-extras",
   "author": "niqdev",
-  "version": "0.2",
+  "version": "0.2.0",
   "description": "Angular $q decorator",
   "license": "MIT",
   "main": "index.js",
