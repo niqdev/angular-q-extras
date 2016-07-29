@@ -49,9 +49,15 @@ $q.allSettled(promises)
 
 ### Development
 ```
+# first time
+npm install -g grunt-cli
+npm install -g bower
+
 npm install
-grunt build
-grunt test
+bower install
+
+npm start
+npm test
 ```
 
 [npm-image]: https://img.shields.io/npm/v/angular-q-extras.svg
