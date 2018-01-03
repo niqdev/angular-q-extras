@@ -1,4 +1,4 @@
-/*! angular-q-extras - v1.0.0 - 2016-07-29 */
+/*! angular-q-extras - v1.1.0 - 2018-01-03 */
 (function () {
   'use strict';
 
