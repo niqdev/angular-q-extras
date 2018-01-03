@@ -58,6 +58,10 @@ bower install
 
 npm start
 npm test
+
+# publish
+npm login
+npm publish
 ```
 
 [npm-image]: https://img.shields.io/npm/v/angular-q-extras.svg
