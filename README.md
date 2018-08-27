@@ -23,6 +23,10 @@ Add the module as a dependency to your application
 
 `angular.module('yourApplication', ['angular-q-extras'])`
 
+### Types
+
+Typescript definitions are available on NPM : [@types/angular-q-extras](https://www.npmjs.com/package/@types/angular-q-extras).
+
 ### Example
 
 ```javascript
