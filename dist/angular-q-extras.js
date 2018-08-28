@@ -1,5 +1,5 @@
-/*! angular-q-extras - v1.1.0 - 2018-01-03 */
-(function () {
+/*! angular-q-extras - v1.1.1 - 2018-08-28 */
+(function (angular) {
   'use strict';
 
   angular.module('angular-q-extras', [])
@@ -118,4 +118,4 @@
 
   }
 
-})();
+})(window.angular);

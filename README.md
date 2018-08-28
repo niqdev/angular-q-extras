@@ -11,9 +11,12 @@ Adds `$q.allSettled` to angular $q.
 
 ### Setup
 
-Install via bower
+Install
 
-`bower install angular-q-extras --save`
+```
+bower install angular-q-extras --save
+npm install angular-q-extras --save
+```
 
 Require it into your application
 
@@ -52,13 +55,12 @@ $q.allSettled(promises)
 ```
 
 ### Development
-```
-# first time
-npm install -g grunt-cli
-npm install -g bower
 
+* [nvm](https://github.com/creationix/nvm)
+
+```
+# setup
 npm install
-bower install
 
 npm start
 npm test
