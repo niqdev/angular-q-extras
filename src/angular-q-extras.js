@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
   'use strict';
 
   angular.module('angular-q-extras', [])
@@ -117,4 +117,4 @@
 
   }
 
-})();
+})(window.angular);
